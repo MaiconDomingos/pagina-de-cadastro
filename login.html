@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <style>
+    body {
+      margin: 0; 
+      height: 100vh;
+      display: flex; 
+      justify-content: center; 
+      align-items: center;
+      background-color: #f7f7f7;
+      font-family: Arial, sans-serif;
+    }
+    .form-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00000033;
+      width: 320px;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    label {
+      display: block; 
+      margin-bottom: 6px; 
+      color: #555;
+      text-align: left;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px; 
+      margin-bottom: 15px;
+      border: 1px solid #ccc; 
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #2196F3;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0b7dda;
+    }
+    a {
+      display: inline-block;
+      margin-top: 12px;
+      color: #2196F3;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>Login</h2>
+    <label for="nome">Nome:</label>
+    <input id="nome" type="text" />
+    <label for="senha">Senha:</label>
+    <input id="senha" type="password" />
+    <button onclick="login()">Entrar</button>
+    <p><a href="recuperar.html">Esqueci minha senha</a></p>
+  </div>
+
+  <script>
+    function login() {
+      const nome = document.getElementById('nome').value.trim();
+      const senha = document.getElementById('senha').value.trim();
+
+      const nomeSalvo = localStorage.getItem('usuarioNome');
+      const senhaSalva = localStorage.getItem('usuarioSenha');
+
+      if (nome === nomeSalvo && senha === senhaSalva) {
+        alert('Login efetuado com sucesso!');
+      } else {
+        alert('Nome ou senha incorretos.');
+      }
+    }
+  </script>
+</body>
+</html>
